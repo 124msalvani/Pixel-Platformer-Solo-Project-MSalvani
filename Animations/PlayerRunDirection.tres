@@ -1,0 +1,15 @@
+[gd_resource type="AnimationNodeBlendSpace1D" format=3 uid="uid://kd07xe8u1ypo"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0lbem"]
+animation = &"RunLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pmfu5"]
+animation = &"RunRight"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0lbem")
+blend_point_0/pos = -1.0
+blend_point_0/name = &"RunLeft"
+blend_point_1/node = SubResource("AnimationNodeAnimation_pmfu5")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"RunRight"

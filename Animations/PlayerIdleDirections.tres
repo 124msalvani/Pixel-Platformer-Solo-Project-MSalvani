@@ -1,0 +1,16 @@
+[gd_resource type="AnimationNodeBlendSpace1D" format=3 uid="uid://5yht5t0jla3n"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j4fqr"]
+animation = &"IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qb7eg"]
+animation = &"IdleRight"
+
+[resource]
+blend_mode = 2
+blend_point_0/node = SubResource("AnimationNodeAnimation_j4fqr")
+blend_point_0/pos = -1.0
+blend_point_0/name = &"IdleLeft"
+blend_point_1/node = SubResource("AnimationNodeAnimation_qb7eg")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"IdleRight"

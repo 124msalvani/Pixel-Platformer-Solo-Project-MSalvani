@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cwpm55ylvu06u"]
+
+[ext_resource type="FontFile" uid="uid://mihqo08psjom" path="res://Sprites/Fonts/ARCADECLASSIC.TTF" id="1_wb7u5"]
+
+[resource]
+font = ExtResource("1_wb7u5")

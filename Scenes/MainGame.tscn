@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dnx1g4k08mlry"]
+
+[ext_resource type="Script" uid="uid://dbbb0n36gd7s4" path="res://Scripts/GameManager.cs" id="1_ybmw1"]
+[ext_resource type="PackedScene" uid="uid://drufds10pvx2m" path="res://Scenes/JorgeMcDan.tscn" id="2_ybmw1"]
+[ext_resource type="Script" uid="uid://b4xavjqfigooa" path="res://Scripts/CameraController.cs" id="3_321ql"]
+[ext_resource type="PackedScene" uid="uid://bhvay1i844at6" path="res://Scenes/WinScreen.tscn" id="5_321ql"]
+[ext_resource type="Script" uid="uid://drgvlibtlih8i" path="res://Scripts/LoadManager.cs" id="6_iuea6"]
+[ext_resource type="PackedScene" uid="uid://bg5om3ni2yrv" path="res://Scenes/LoadingScreen.tscn" id="7_kvfik"]
+
+[node name="MainGame" type="Node2D" unique_id=50887998 node_paths=PackedStringArray("_loadManager", "_zonesContainer", "_playerController", "_cameraController")]
+script = ExtResource("1_ybmw1")
+_loadManager = NodePath("LoadingManager")
+_zonesContainer = NodePath("LevelScenes")
+_playerController = NodePath("CharacterBody2D")
+_cameraController = NodePath("MainCamera")
+_startingSceneName = "Scenes/LevelOne.tscn"
+
+[node name="LevelScenes" type="Node2D" parent="." unique_id=889528788]
+
+[node name="CharacterBody2D" parent="." unique_id=604108376 instance=ExtResource("2_ybmw1")]
+position = Vector2(700, 42)
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=1140296583 node_paths=PackedStringArray("_trackedTarget", "_gameManager")]
+position = Vector2(160, 90)
+script = ExtResource("3_321ql")
+_trackedTarget = NodePath("../CharacterBody2D")
+_gameManager = NodePath("..")
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=881915699]
+
+[node name="Win Screen" parent="GUI" unique_id=1436118704 instance=ExtResource("5_321ql")]
+visible = false
+
+[node name="LoadingManager" type="Node2D" parent="." unique_id=1819938357 node_paths=PackedStringArray("_loadingScreen")]
+script = ExtResource("6_iuea6")
+_loadingScreen = NodePath("LoadingScreen")
+
+[node name="LoadingScreen" parent="LoadingManager" unique_id=1737652707 instance=ExtResource("7_kvfik")]
