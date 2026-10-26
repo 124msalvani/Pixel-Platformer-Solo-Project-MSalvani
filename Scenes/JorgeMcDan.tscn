@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dx0r5dlbpc57l" path="res://Scripts/PlayerAnimationController.cs" id="6_jhsdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktvqs"]
-size = Vector2(10, 26)
+size = Vector2(10, 13)
 
 [sub_resource type="Animation" id="Animation_hmq2j"]
 resource_name = "IdleLeft"
@@ -599,7 +599,7 @@ states/Run/node = ExtResource("4_vkxxc")
 states/Run/position = Vector2(266.3786, 154.14398)
 states/Start/position = Vector2(80.79999, 193.66399)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_m415j"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_cj16b"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_gx3um"), "Crouch", "Ascend", SubResource("AnimationNodeStateMachineTransition_vkxxc"), "Descend", "Land", SubResource("AnimationNodeStateMachineTransition_jhsdu"), "Run", "Crouch", SubResource("AnimationNodeStateMachineTransition_1i5o7"), "Land", "Run", SubResource("AnimationNodeStateMachineTransition_0y157"), "Idle", "Crouch", SubResource("AnimationNodeStateMachineTransition_r2wji"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_qp7so"), "Ascend", "Freefall", SubResource("AnimationNodeStateMachineTransition_xjl43"), "Freefall", "Descend", SubResource("AnimationNodeStateMachineTransition_6fveo"), "Freefall", "Land", SubResource("AnimationNodeStateMachineTransition_cf0iw"), "Run", "Descend", SubResource("AnimationNodeStateMachineTransition_2qte6"), "Idle", "Descend", SubResource("AnimationNodeStateMachineTransition_mrr0c")]
-graph_offset = Vector2(85.34482, -73.01952)
+graph_offset = Vector2(-71.65518, -35.019524)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=604108376 node_paths=PackedStringArray("_animationHandler")]
 collision_layer = 2
@@ -608,6 +608,7 @@ script = ExtResource("1_p3pgs")
 _animationHandler = NodePath("AnimationTree")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871119982]
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_ktvqs")
 
 [node name="BodySprite" type="AnimatedSprite2D" parent="." unique_id=121281737]

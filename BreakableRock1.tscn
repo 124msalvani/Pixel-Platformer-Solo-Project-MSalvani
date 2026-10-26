@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://drimu8pl06xdy"]
+
+[ext_resource type="Texture2D" uid="uid://cnyqjwvprl0f5" path="res://Sprites/Terrain/Rock1.png" id="1_q1355"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghci8"]
+size = Vector2(39, 23)
+
+[node name="Node2D" type="Node2D" unique_id=1973588568]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1200277996]
+position = Vector2(0, 0.115)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1561332205]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_ghci8")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=849779287]
+position = Vector2(0, -11)
+texture = ExtResource("1_q1355")
