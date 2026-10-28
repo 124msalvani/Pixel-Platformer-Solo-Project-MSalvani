@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dowhjpeyvqac1"]
+
+[ext_resource type="Script" uid="uid://c3g3hv5nioufm" path="res://Scripts/MagicBullet.cs" id="1_oogp8"]
+[ext_resource type="Texture2D" uid="uid://bdey04uhjp5te" path="res://Sprites/Creatures/Fox/BulletStart.png" id="2_njgsg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghci8"]
+radius = 8.0
+
+[node name="MagicBullet" type="CharacterBody2D" unique_id=1433915273]
+script = ExtResource("1_oogp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=176926103]
+texture = ExtResource("2_njgsg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1669601288]
+light_mask = 8
+shape = SubResource("CircleShape2D_ghci8")
+
+[node name="Timer" type="Timer" parent="." unique_id=254447409]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

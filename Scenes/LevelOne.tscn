@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkec82onjsi4i" path="res://Sprites/Background/BG_1/Lights 1.png" id="6_vhmom"]
 [ext_resource type="Texture2D" uid="uid://d22y7r067jjc1" path="res://Sprites/Terrain/Pixel_Woods_Tileset_Edited.png" id="7_86mp4"]
 [ext_resource type="Script" uid="uid://d0uow86s11qid" path="res://Scripts/ZonePortal.cs" id="7_cvavm"]
+[ext_resource type="Texture2D" uid="uid://7xbmgyyu5w24" path="res://Sprites/Terrain/Breakables/BreakableRockSmall.png" id="8_86mp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su7xh"]
 size = Vector2(2000, 384)
@@ -475,6 +476,14 @@ texture = ExtResource("7_86mp4")
 14:5/0 = 0
 14:6/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ufbp1"]
+resource_name = "BreakableRock1"
+texture = ExtResource("8_86mp4")
+texture_region_size = Vector2i(32, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.827567, -7.913784, 15.5308, -7.8148623, 16.223255, 8.408396, -8, 8, -16.025412, 7.913784)
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_ghci8"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -484,6 +493,7 @@ terrain_set_1/mode = 0
 terrain_set_1/terrain_0/name = "Cave"
 terrain_set_1/terrain_0/color = Color(0.76440847, 0.85809857, 0.991844, 1)
 sources/1 = SubResource("TileSetAtlasSource_86mp4")
+sources/2 = SubResource("TileSetAtlasSource_ufbp1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x072m"]
 size = Vector2(20, 86.5)

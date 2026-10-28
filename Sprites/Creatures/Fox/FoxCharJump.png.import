@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wxku00twx4df"
-path="res://.godot/imported/Pebble_Idle.png-d9df305698c4f3d11e84e74381f07d3b.ctex"
+uid="uid://b1jiyaqodf4nr"
+path="res://.godot/imported/FoxCharJump.png-e75397fc3b1ae464234e56abfd658124.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Creatures/Pebble/Pebble_Idle.png"
-dest_files=["res://.godot/imported/Pebble_Idle.png-d9df305698c4f3d11e84e74381f07d3b.ctex"]
+source_file="res://Sprites/Creatures/Fox/FoxCharJump.png"
+dest_files=["res://.godot/imported/FoxCharJump.png-e75397fc3b1ae464234e56abfd658124.ctex"]
 
 [params]
 

@@ -65,7 +65,14 @@ public partial class CharacterController : CharacterBody2D
         }
 
 
-		Velocity = currentVelocity;
+        /*10/27 Addition: Firing Bullet, will be fixed later
+        if (Input.IsActionJustPressed("Magic") && IsOnFloor())
+        {
+            EmitSignal(SignalName.ShootMagicBullet);
+        } */
+
+
+        Velocity = currentVelocity;
 		MoveAndSlide();
 	}
 

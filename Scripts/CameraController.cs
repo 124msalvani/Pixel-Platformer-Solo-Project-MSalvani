@@ -36,4 +36,6 @@ public partial class CameraController : Camera2D
         this.LimitBottom = (int)(ncameraZone.Position.Y + ncameraZone.GetChild<CollisionShape2D>(0).GetShape().GetRect().Size.Y / 2);
 
     }
+
+   
 }

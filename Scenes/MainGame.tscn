@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnx1g4k08mlry"]
 
 [ext_resource type="Script" uid="uid://dbbb0n36gd7s4" path="res://Scripts/GameManager.cs" id="1_ybmw1"]
-[ext_resource type="PackedScene" uid="uid://drufds10pvx2m" path="res://Scenes/JorgeMcDan.tscn" id="2_ybmw1"]
+[ext_resource type="PackedScene" uid="uid://drufds10pvx2m" path="res://Scenes/FoxCharacter.tscn" id="2_ybmw1"]
 [ext_resource type="Script" uid="uid://b4xavjqfigooa" path="res://Scripts/CameraController.cs" id="3_321ql"]
 [ext_resource type="PackedScene" uid="uid://bhvay1i844at6" path="res://Scenes/WinScreen.tscn" id="5_321ql"]
 [ext_resource type="Script" uid="uid://drgvlibtlih8i" path="res://Scripts/LoadManager.cs" id="6_iuea6"]

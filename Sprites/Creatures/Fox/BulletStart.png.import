@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhfme14p3iplm"
-path="res://.godot/imported/Pebble_Full.png-932e5075492e6eafccceb5da9ef7ea5b.ctex"
+uid="uid://bdey04uhjp5te"
+path="res://.godot/imported/BulletStart.png-9ee0b2f537f56d2830d4fb66d1bbdaf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Creatures/Pebble/Pebble_Full.png"
-dest_files=["res://.godot/imported/Pebble_Full.png-932e5075492e6eafccceb5da9ef7ea5b.ctex"]
+source_file="res://Sprites/Creatures/Fox/BulletStart.png"
+dest_files=["res://.godot/imported/BulletStart.png-9ee0b2f537f56d2830d4fb66d1bbdaf0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r0lnsrnfi7yw"
-path="res://.godot/imported/Pebble_Run.png-e77e3aec1639506a5b40a82bc0ba70b2.ctex"
+uid="uid://25wtnpvgi34v"
+path="res://.godot/imported/FoxCharShoot.png-d85b0545159f3cb03a12d7e1957045f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Creatures/Pebble/Pebble_Run.png"
-dest_files=["res://.godot/imported/Pebble_Run.png-e77e3aec1639506a5b40a82bc0ba70b2.ctex"]
+source_file="res://Sprites/Creatures/Fox/FoxCharShoot.png"
+dest_files=["res://.godot/imported/FoxCharShoot.png-d85b0545159f3cb03a12d7e1957045f6.ctex"]
 
 [params]
 

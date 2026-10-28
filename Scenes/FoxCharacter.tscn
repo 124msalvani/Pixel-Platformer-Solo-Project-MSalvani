@@ -612,9 +612,11 @@ position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_ktvqs")
 
 [node name="BodySprite" type="AnimatedSprite2D" parent="." unique_id=121281737]
+position = Vector2(0, 20)
 sprite_frames = ExtResource("2_vkxxc")
 animation = &"Idle"
 autoplay = "Idle"
+frame_progress = 0.115292855
 offset = Vector2(0, -16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1981397373]
