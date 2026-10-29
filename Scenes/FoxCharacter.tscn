@@ -616,8 +616,9 @@ position = Vector2(0, 20)
 sprite_frames = ExtResource("2_vkxxc")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.115292855
-offset = Vector2(0, -16)
+frame = 1
+frame_progress = 0.97180194
+offset = Vector2(0, -23)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1981397373]
 libraries/ = SubResource("AnimationLibrary_r2wji")
@@ -634,3 +635,6 @@ parameters/Land/blend_position = 0.0
 parameters/Run/blend_position = 0.0
 script = ExtResource("6_jhsdu")
 _playerController = NodePath("..")
+
+[node name="Muzzle" type="Node2D" parent="." unique_id=1541581157]
+position = Vector2(16, 0)

@@ -16,12 +16,46 @@ public partial class CharacterController : CharacterBody2D
     public const float PixelsPerMeter = 16;
     public const float MHorizonalSpeed = 10f;
 	public const float JumpVelocity = -25f;
+    public float _bulletSpeed = 10;
+
+    private AnimatedSprite2D _bodySprite;
+    public Node2D muzzle;
+    private Vector2 _originalMuzzlePosition;
 
     public override void _Ready()
     {
-
+        _bodySprite = GetNode<AnimatedSprite2D>("BodySprite");
+        muzzle = GetNode<Node2D>("Muzzle");
+        _originalMuzzlePosition = muzzle.Position;
     }
 
+    public override void _Process(double delta)
+    {
+        //10/27 Addition: Firing Bullet, will be fixed later
+        if (Input.IsActionJustPressed("ShootMagic") && IsOnFloor())
+        {
+            GD.Print("Shoot Magic");
+            //EmitSignal(SignalName.ShootMagicBullet);
+
+
+            //#Citation: Taken from PlayerController from Assignment1, Originally in Process
+            Vector2 spawnLocation = muzzle.GlobalPosition;
+
+            Vector2 direction = Vector2.Right.Rotated(Rotation);
+
+            //Flips based on bodySprite position
+            if (_bodySprite.FlipH)
+            {
+                direction = Vector2.Left.Rotated(Rotation);
+            }
+
+            Vector2 bulletVelocity = direction * PixelsPerMeter * _bulletSpeed;
+
+            Node2D newBullet = MagicBullet.InitalizeObject(spawnLocation, bulletVelocity);
+            newBullet.AddToGroup("bullet");
+            GetTree().CurrentScene.AddChild(newBullet);
+        }
+    } 
 
     public override void _PhysicsProcess(double delta)
 	{
@@ -40,9 +74,21 @@ public partial class CharacterController : CharacterBody2D
         }
         currentVelocity.X = horizontalDirection * PixelsPerMeter * MHorizonalSpeed;
 
+        //10/29 Addition
+        //#Citation: Google "Godot c# how to get the flipH property"
+        //Flipping the muzzle's position based on if the sprite has been flipped
+        bool isFlipped = _bodySprite.FlipH;
+        if (isFlipped)
+        {
+            muzzle.Position = new Vector2(-_originalMuzzlePosition.X, _originalMuzzlePosition.Y);
+        } else
+        {
+            muzzle.Position = _originalMuzzlePosition;
+        }
+
         // Add the gravity.
         if (!IsOnFloor())
-		{
+        {
             // Custom Arc
             if (currentVelocity.Y < -1 * PixelsPerMeter)
             {
@@ -56,20 +102,13 @@ public partial class CharacterController : CharacterBody2D
             {
                 currentVelocity += GetGravity() * (float)delta * 2f;
             }
-		}
+        }
         // Handle Jump
         if (Input.IsActionJustPressed("Jump") && IsOnFloor())
         {
             currentVelocity.Y = JumpVelocity * PixelsPerMeter;
             EmitSignal(SignalName.StartedJump);
         }
-
-
-        /*10/27 Addition: Firing Bullet, will be fixed later
-        if (Input.IsActionJustPressed("Magic") && IsOnFloor())
-        {
-            EmitSignal(SignalName.ShootMagicBullet);
-        } */
 
 
         Velocity = currentVelocity;
