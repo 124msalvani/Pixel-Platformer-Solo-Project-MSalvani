@@ -185,19 +185,19 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 0.25,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_6wa1f")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_vntip")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_1yjsx")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_t6v0i")
 }],
 "loop": 1,
 "name": &"ShootMagic",
-"speed": 5.0
+"speed": 1.0
 }]

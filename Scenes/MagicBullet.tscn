@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bdey04uhjp5te" path="res://Sprites/Creatures/Fox/BulletStart.png" id="2_njgsg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghci8"]
-radius = 8.0
 
 [node name="MagicBullet" type="CharacterBody2D" unique_id=1433915273]
 script = ExtResource("1_oogp8")

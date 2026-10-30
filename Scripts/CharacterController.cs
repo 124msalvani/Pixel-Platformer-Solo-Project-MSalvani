@@ -10,13 +10,18 @@ public partial class CharacterController : CharacterBody2D
     [Signal]
     public delegate void StartedJumpEventHandler();
 
+    //Shooting
+    [Signal]
+    public delegate void ShootMagicBulletEventHandler();
+    private bool _canShoot = true;
+
     [Export]
     private PlayerAnimationController _animationHandler;
 
     public const float PixelsPerMeter = 16;
-    public const float MHorizonalSpeed = 10f;
-	public const float JumpVelocity = -25f;
-    public float _bulletSpeed = 10;
+    public const float MHorizonalSpeed = 8f;
+	public const float JumpVelocity = -24f;
+    public float _bulletSpeed = 30;
 
     private AnimatedSprite2D _bodySprite;
     public Node2D muzzle;
@@ -32,28 +37,11 @@ public partial class CharacterController : CharacterBody2D
     public override void _Process(double delta)
     {
         //10/27 Addition: Firing Bullet, will be fixed later
-        if (Input.IsActionJustPressed("ShootMagic") && IsOnFloor())
+        if (Input.IsActionJustPressed("ShootMagic") && IsOnFloor() &&_canShoot)
         {
             GD.Print("Shoot Magic");
-            //EmitSignal(SignalName.ShootMagicBullet);
-
-
-            //#Citation: Taken from PlayerController from Assignment1, Originally in Process
-            Vector2 spawnLocation = muzzle.GlobalPosition;
-
-            Vector2 direction = Vector2.Right.Rotated(Rotation);
-
-            //Flips based on bodySprite position
-            if (_bodySprite.FlipH)
-            {
-                direction = Vector2.Left.Rotated(Rotation);
-            }
-
-            Vector2 bulletVelocity = direction * PixelsPerMeter * _bulletSpeed;
-
-            Node2D newBullet = MagicBullet.InitalizeObject(spawnLocation, bulletVelocity);
-            newBullet.AddToGroup("bullet");
-            GetTree().CurrentScene.AddChild(newBullet);
+            EmitSignal(SignalName.ShootMagicBullet);
+            StartShootCooldown();
         }
     } 
 
@@ -114,6 +102,36 @@ public partial class CharacterController : CharacterBody2D
         Velocity = currentVelocity;
 		MoveAndSlide();
 	}
+
+    private async void StartShootCooldown()
+    {
+        await Task.Delay(300);
+        ShootBullet();
+        await Task.Delay(300);
+        _canShoot = true;
+    }
+
+    public void ShootBullet()
+    {
+
+        //#Citation: Taken from PlayerController from Assignment1, Originally in Process
+        Vector2 spawnLocation = muzzle.GlobalPosition;
+
+        Vector2 direction = Vector2.Right.Rotated(Rotation);
+
+        //Flips based on bodySprite position
+        if (_bodySprite.FlipH)
+        {
+            direction = Vector2.Left.Rotated(Rotation);
+        }
+
+        Vector2 bulletVelocity = direction * PixelsPerMeter * _bulletSpeed;
+
+        Node2D newBullet = MagicBullet.InitalizeObject(spawnLocation, bulletVelocity);
+        GetTree().CurrentScene.AddChild(newBullet);
+
+        _canShoot = false;
+    }
 
     
 }

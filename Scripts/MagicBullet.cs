@@ -51,24 +51,51 @@ public partial class MagicBullet : CharacterBody2D
 
         if (collidedObject != null)
         {
-            GD.Print("IS COLLISION");
-            this.QueueFree(); 
+            GD.Print("COLLISION");
 
-            //SOMETHING IN HERE ABOUT THE BREAKABLE TILE!!!
+            //#Citation: Started with code from https://www.youtube.com/watch?v=sACXaQj3JEQ
+            //#Citation: Code was being iffy due to being outdated, changed to layers, Google AI: Godot custom tile layers C#
+            //!!This was the best I could get it working, getting the tile coordinates was being really weird
+            if (collidedObject.GetCollider() is TileMapLayer tileMapLayer)
+            {
+                Vector2 collisionPosition = collidedObject.GetPosition();
+                //Move into tile to make sure we collided with it
+                Vector2 collisionNormal = collidedObject.GetNormal();
+                Vector2 tilePosition = collisionPosition - collisionNormal * 2f;
+
+                //Convert global position into tilemap local position
+                Vector2 localPosition = tileMapLayer.ToLocal(tilePosition);
+
+                //Convert local position into tile coordinates
+                Vector2I tileCoordinates = tileMapLayer.LocalToMap(localPosition);
+
+                //Get the tile data of the tile at those coordinates
+                TileData tileData = tileMapLayer.GetCellTileData(tileCoordinates);
+
+                if (tileData != null)
+                {
+                    if ((bool)tileData.GetCustomData("destructible"))
+                    {
+                        tileMapLayer.EraseCell(tileCoordinates);
+                        GD.Print("TILE DESTROYED!");
+                    }
+                }
+            }
 
             if (collidedObject.GetCollider() is MagicBullet)
             {
                 GD.Print("IS BULLET");
             }
+            this.QueueFree();
         }
+        
     }
-
 
 
 
     //#Citation: Method and Signal connection from https://www.youtube.com/watch?v=sACXaQj3JEQ
     private void OnTimerTimeout()
     {
-        QueueFree();
+        this.QueueFree();
     }
 }

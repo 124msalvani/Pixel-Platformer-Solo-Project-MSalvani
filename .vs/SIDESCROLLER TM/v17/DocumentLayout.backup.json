@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\MagicBullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\MagicBullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{51E1D171-0D8E-42F9-ABE6-184BFB8D8AEF}|Sidescroller TM.csproj|c:\\users\\jynxl\\documents\\godotprojects\\pixel platformer solo project\\scripts\\charactercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51E1D171-0D8E-42F9-ABE6-184BFB8D8AEF}|Sidescroller TM.csproj|solutionrelative:scripts\\charactercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51E1D171-0D8E-42F9-ABE6-184BFB8D8AEF}|Sidescroller TM.csproj|c:\\users\\jynxl\\documents\\godotprojects\\pixel platformer solo project\\scripts\\playeranimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51E1D171-0D8E-42F9-ABE6-184BFB8D8AEF}|Sidescroller TM.csproj|solutionrelative:scripts\\playeranimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51E1D171-0D8E-42F9-ABE6-184BFB8D8AEF}|Sidescroller TM.csproj|c:\\users\\jynxl\\documents\\godotprojects\\pixel platformer solo project\\scripts\\magicbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51E1D171-0D8E-42F9-ABE6-184BFB8D8AEF}|Sidescroller TM.csproj|solutionrelative:scripts\\magicbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,39 +30,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MagicBullet.cs",
               "DocumentMoniker": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\MagicBullet.cs",
               "RelativeDocumentMoniker": "Scripts\\MagicBullet.cs",
               "ToolTip": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\MagicBullet.cs",
               "RelativeToolTip": "Scripts\\MagicBullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwCAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-28T00:28:26.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PlayerAnimationController.cs",
               "DocumentMoniker": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\PlayerAnimationController.cs",
               "RelativeDocumentMoniker": "Scripts\\PlayerAnimationController.cs",
               "ToolTip": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\PlayerAnimationController.cs",
               "RelativeToolTip": "Scripts\\PlayerAnimationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-14T18:45:56.373Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CharacterController.cs",
               "DocumentMoniker": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\CharacterController.cs",
               "RelativeDocumentMoniker": "Scripts\\CharacterController.cs",
               "ToolTip": "C:\\Users\\JynxL\\Documents\\GodotProjects\\Pixel Platformer Solo Project\\Scripts\\CharacterController.cs",
               "RelativeToolTip": "Scripts\\CharacterController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwDYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-14T18:41:30.436Z",
               "EditorCaption": ""
