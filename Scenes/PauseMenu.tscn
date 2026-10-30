@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://blhm1u8fr20vp"]
+
+[ext_resource type="Script" uid="uid://dwmc454b07wm5" path="res://Scripts/PauseMenu.cs" id="1_ey1tb"]
+[ext_resource type="Texture2D" uid="uid://cw0blvqwmv5gc" path="res://Sprites/UI/Panels/StandardPanel.png" id="1_qwhev"]
+[ext_resource type="Theme" uid="uid://b0f1osl05uk3j" path="res://Fonts/new_theme.tres" id="3_siy43"]
+[ext_resource type="FontFile" uid="uid://ftnq1hegfko3" path="res://Fonts/PixelifySans-Bold.ttf" id="4_yxrls"]
+[ext_resource type="FontFile" uid="uid://b8knhaciehhgq" path="res://Fonts/PixelifySans-Regular.ttf" id="5_gqxqw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37bqs"]
+font = ExtResource("4_yxrls")
+
+[sub_resource type="LabelSettings" id="LabelSettings_024v7"]
+font = ExtResource("5_gqxqw")
+
+[node name="Control" type="Control" unique_id=1962854035 node_paths=PackedStringArray("_volumeSlider", "_pauseButton", "_quitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = 40.0
+offset_right = -86.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ey1tb")
+_volumeSlider = NodePath("MarginContainer/NinePatchRect/MarginContainer2/HSlider")
+_pauseButton = NodePath("MarginContainer/NinePatchRect/MarginContainer/Unpause")
+_quitButton = NodePath("MarginContainer/NinePatchRect/MarginContainer/Main Menu")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2131787643]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1984450007]
+layout_mode = 2
+texture = ExtResource("1_qwhev")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect" unique_id=448948105]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 25.0
+grow_horizontal = 2
+theme = ExtResource("3_siy43")
+text = "Paused"
+label_settings = SubResource("LabelSettings_37bqs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=623798077]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 27.0
+offset_right = 141.0
+offset_bottom = 66.0
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/NinePatchRect/MarginContainer2" unique_id=1445522788]
+layout_mode = 2
+size_flags_vertical = 8
+min_value = -10.0
+max_value = 0.0
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer2" unique_id=498988575]
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_024v7")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=195736836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.69000006
+anchor_right = 0.95300007
+anchor_bottom = 0.97
+offset_left = 0.043999672
+offset_right = -0.044006348
+
+[node name="Unpause" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=918153657]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme = ExtResource("3_siy43")
+theme_override_font_sizes/font_size = 10
+text = "Resume"
+
+[node name="Main Menu" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=1014164050]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme = ExtResource("3_siy43")
+theme_override_font_sizes/font_size = 10
+text = "Main Menu"

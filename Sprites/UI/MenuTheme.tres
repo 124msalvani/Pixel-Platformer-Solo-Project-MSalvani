@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dqp78qk4jbbqg"]
 
-[ext_resource type="FontFile" uid="uid://mihqo08psjom" path="res://Sprites/Fonts/ARCADECLASSIC.TTF" id="1_mpdfi"]
+[ext_resource type="FontFile" uid="uid://b8knhaciehhgq" path="res://Fonts/PixelifySans-Regular.ttf" id="1_mpdfi"]
 
 [resource]
 default_font = ExtResource("1_mpdfi")

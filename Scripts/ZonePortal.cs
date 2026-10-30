@@ -10,6 +10,10 @@ public partial class ZonePortal : Node2D
     [Export]
     public Node2D SpawnPoint { get; private set; }
 
+    //Opening win screen at end
+    [Export]
+    public bool IsFinalPortal { get; private set; } = false;
+
     [Signal]
     public delegate void EnteredPortalEventHandler(ZonePortal signalingPortal);
 

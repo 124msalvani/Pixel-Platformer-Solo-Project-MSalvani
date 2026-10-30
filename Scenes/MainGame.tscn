@@ -4,15 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://drufds10pvx2m" path="res://Scenes/FoxCharacter.tscn" id="2_ybmw1"]
 [ext_resource type="Script" uid="uid://b4xavjqfigooa" path="res://Scripts/CameraController.cs" id="3_321ql"]
 [ext_resource type="PackedScene" uid="uid://bhvay1i844at6" path="res://Scenes/WinScreen.tscn" id="5_321ql"]
+[ext_resource type="PackedScene" uid="uid://blhm1u8fr20vp" path="res://Scenes/PauseMenu.tscn" id="5_iuea6"]
 [ext_resource type="Script" uid="uid://drgvlibtlih8i" path="res://Scripts/LoadManager.cs" id="6_iuea6"]
 [ext_resource type="PackedScene" uid="uid://bg5om3ni2yrv" path="res://Scenes/LoadingScreen.tscn" id="7_kvfik"]
+[ext_resource type="AudioStream" uid="uid://cmrrt4gks5q5n" path="res://Sounds/AreaMusic.mp3" id="8_kvfik"]
 
-[node name="MainGame" type="Node2D" unique_id=50887998 node_paths=PackedStringArray("_loadManager", "_zonesContainer", "_playerController", "_cameraController")]
+[node name="MainGame" type="Node2D" unique_id=50887998 node_paths=PackedStringArray("_loadManager", "_zonesContainer", "_playerController", "_cameraController", "_winScreen")]
 script = ExtResource("1_ybmw1")
 _loadManager = NodePath("LoadingManager")
 _zonesContainer = NodePath("LevelScenes")
 _playerController = NodePath("CharacterBody2D")
 _cameraController = NodePath("MainCamera")
+_winScreen = NodePath("GUI/Win Screen")
 _startingSceneName = "Scenes/LevelOne.tscn"
 
 [node name="LevelScenes" type="Node2D" parent="." unique_id=889528788]
@@ -31,8 +34,20 @@ _gameManager = NodePath("..")
 [node name="Win Screen" parent="GUI" unique_id=1436118704 instance=ExtResource("5_321ql")]
 visible = false
 
+[node name="Pause Menu" parent="GUI" unique_id=1962854035 instance=ExtResource("5_iuea6")]
+visible = false
+offset_left = 165.8712
+offset_top = 57.943195
+offset_right = -6.128784
+offset_bottom = -22.056808
+
 [node name="LoadingManager" type="Node2D" parent="." unique_id=1819938357 node_paths=PackedStringArray("_loadingScreen")]
 script = ExtResource("6_iuea6")
 _loadingScreen = NodePath("LoadingScreen")
 
 [node name="LoadingScreen" parent="LoadingManager" unique_id=1737652707 instance=ExtResource("7_kvfik")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1283171731]
+stream = ExtResource("8_kvfik")
+volume_db = -10.0
+autoplay = true

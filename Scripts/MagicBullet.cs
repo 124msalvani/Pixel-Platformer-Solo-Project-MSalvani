@@ -19,6 +19,10 @@ public partial class MagicBullet : CharacterBody2D
     //Use for animations later
     //[Export]
     //private BulletAnimationController _bulletanimationhandler;
+
+    [Export]
+    private AudioStream _impactAudio;
+
     public Vector2 BulletVelocity { get; set; }
     //public, static can only change other static, same across all instances of the class
 
@@ -77,6 +81,12 @@ public partial class MagicBullet : CharacterBody2D
                     if ((bool)tileData.GetCustomData("destructible"))
                     {
                         tileMapLayer.EraseCell(tileCoordinates);
+                  
+                        //SFX
+                        OneshotAudio destroySFX = new OneshotAudio();
+                        GetTree().CurrentScene.AddChild(destroySFX);
+                        destroySFX.InitializeObject(_impactAudio, collisionPosition, 100);
+
                         GD.Print("TILE DESTROYED!");
                     }
                 }

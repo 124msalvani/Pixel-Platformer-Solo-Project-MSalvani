@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhvay1i844at6"]
 
 [ext_resource type="Texture2D" uid="uid://cw0blvqwmv5gc" path="res://Sprites/UI/Panels/StandardPanel.png" id="1_d8xbi"]
-[ext_resource type="Theme" uid="uid://dqp78qk4jbbqg" path="res://Sprites/UI/MenuTheme.tres" id="2_82r0j"]
+[ext_resource type="Theme" uid="uid://b0f1osl05uk3j" path="res://Fonts/new_theme.tres" id="2_d8xbi"]
 
 [node name="Win Screen" type="Control" unique_id=1436118704]
 layout_mode = 3
@@ -41,8 +41,9 @@ anchor_right = 1.0
 offset_top = 8.0
 offset_bottom = 39.0
 grow_horizontal = 2
-theme = ExtResource("2_82r0j")
-text = "You're Winner!"
+theme = ExtResource("2_d8xbi")
+theme_override_font_sizes/font_size = 25
+text = "You Won!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,6 +56,6 @@ anchor_right = 0.7
 anchor_bottom = 0.86
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("2_82r0j")
+theme = ExtResource("2_d8xbi")
 theme_override_font_sizes/font_size = 10
 text = "Main Menu"

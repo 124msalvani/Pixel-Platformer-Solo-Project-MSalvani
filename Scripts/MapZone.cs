@@ -14,6 +14,8 @@ public partial class MapZone : Node2D
     [Export]
     public ZonePortal[] ZonePortals { get; private set; }
 
+    
+
     [Signal]
     public delegate void EnteredPortalEventHandler(string anticipatedScene);
 
@@ -35,6 +37,10 @@ public partial class MapZone : Node2D
 
     public void PortalTriggered(ZonePortal triggeringPortal)
     {
-        EmitSignal(SignalName.EnteredPortal, triggeringPortal.ConnectedScene);
+        if (triggeringPortal.IsFinalPortal)
+        {
+            EmitSignal(SignalName.EnteredPortal, "WIN");
+        } else 
+            EmitSignal(SignalName.EnteredPortal, triggeringPortal.ConnectedScene);
     }
 }

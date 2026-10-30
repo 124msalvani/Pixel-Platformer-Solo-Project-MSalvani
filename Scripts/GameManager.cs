@@ -19,9 +19,14 @@ public partial class GameManager : Node2D
     [Export]
     private CameraController _cameraController;
 
+    [Export]
+    private Control _winScreen;
+
     private MapZone _activeZone;
 
     private Node2D _spawnPoint;
+
+
 
     //private MapZone[] _loadedZones;
 
@@ -87,6 +92,14 @@ public partial class GameManager : Node2D
     public async void BeginLoadingZone(string anticipatedScene)
     {
         GD.Print("Request Send");
+
+        if (anticipatedScene == "WIN")
+        {
+            _winScreen.Visible = true;
+            _playerController.SetPhysicsProcess(false);
+            return;
+        }
+
         // For one-way portals
         if (anticipatedScene == "")
         {
