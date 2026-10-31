@@ -1,14 +1,15 @@
+/********************************************************************************************/
+/*  File: MagicBullet.cs
+/*  Author: Prof. Jacklitsch
+/*  Current Author:  Maggie Salvani
 /*  Major:   Game Development
 /*  Creation Date:   10/27/26
 /*  Last Modified:   10/29/26
 /*  Section: CPSC320 
 /*  Professor Name:  Prof. Jacklitsch
-/*  Author: Prof. Jacklitsch
-/*  Current Author: Maggie Salvani
 /*  Assignment: Project 1
-/*  Purpose: Gets bullet scene, instantiates, animates, and deletes bullet after hitting an object or after a certain amount of time
+/*  Purpose:	Demonstrate a solid grasp of principles of 2D platformers and pixel art through both design documents and game.
 /********************************************************************************************/
-
 
 
 using Godot;
@@ -16,9 +17,6 @@ using System;
 
 public partial class MagicBullet : CharacterBody2D
 {
-    //Use for animations later
-    //[Export]
-    //private BulletAnimationController _bulletanimationhandler;
 
     [Export]
     private AudioStream _impactAudio;
@@ -57,8 +55,8 @@ public partial class MagicBullet : CharacterBody2D
         {
             GD.Print("COLLISION");
 
-            //#Citation: Started with code from https://www.youtube.com/watch?v=sACXaQj3JEQ
-            //#Citation: Code was being iffy due to being outdated, changed to layers, Google AI: Godot custom tile layers C#
+            //#Citation: Started with code from c64cosmin, "How to make destructible terrain using tilesets" https://www.youtube.com/watch?v=sACXaQj3JEQ on 10/27
+            //#Citation: Code was being iffy due to being outdated, changed to layers, Google AI: Godot custom tile layers C# on 10/29
             //!!This was the best I could get it working, getting the tile coordinates was being really weird
             if (collidedObject.GetCollider() is TileMapLayer tileMapLayer)
             {
@@ -82,7 +80,7 @@ public partial class MagicBullet : CharacterBody2D
                     {
                         tileMapLayer.EraseCell(tileCoordinates);
                   
-                        //SFX
+                        //#Citation: SFX from Prof. Jacklitsch recording Audio and Pausing, on 10/29 
                         OneshotAudio destroySFX = new OneshotAudio();
                         GetTree().CurrentScene.AddChild(destroySFX);
                         destroySFX.InitializeObject(_impactAudio, collisionPosition, 100);
@@ -102,8 +100,13 @@ public partial class MagicBullet : CharacterBody2D
     }
 
 
-
-    //#Citation: Method and Signal connection from https://www.youtube.com/watch?v=sACXaQj3JEQ
+    /* 
+    * Name: OnTimerTimeout
+    * Description: Once timer is up, deletes bullet
+    * Parameters: None
+    * Returns: None
+    */
+    //#Citation: Method and Signal connection from c64cosmin, "How to make destructible terrain using tilesets" https://www.youtube.com/watch?v=sACXaQj3JEQ on 10/27
     private void OnTimerTimeout()
     {
         this.QueueFree();

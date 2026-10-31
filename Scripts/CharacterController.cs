@@ -1,3 +1,15 @@
+/********************************************************************************************/
+/*  File: CharacterController.cs
+ *  Author: Prof. Jacklitsch
+/*  Current Author:  Maggie Salvani
+/*  Major:   Game Development
+/*  Creation Date:   10/22/26
+/*  Last Modified:   10/30/26
+/*  Section: CPSC320 
+/*  Professor Name:  Prof. Jacklitsch
+/*  Assignment: Project 1
+/*  Purpose:	Demonstrate a solid grasp of principles of 2D platformers and pixel art through both design documents and game.
+/********************************************************************************************/
 using Godot;
 using System;
 using System.Threading.Tasks;
@@ -27,6 +39,12 @@ public partial class CharacterController : CharacterBody2D
     public Node2D muzzle;
     private Vector2 _originalMuzzlePosition;
 
+    /* 
+    * Name: _Ready
+    * Description: On initialization, gets the player's body sprite, the muzzle and the muzzle's position
+    * Parameters: None
+    * Returns: None
+    */
     public override void _Ready()
     {
         _bodySprite = GetNode<AnimatedSprite2D>("BodySprite");
@@ -34,17 +52,28 @@ public partial class CharacterController : CharacterBody2D
         _originalMuzzlePosition = muzzle.Position;
     }
 
+    /* 
+    * Name: _Process
+    * Description: Runs every frame, checking to see if the player can shoot a bullet
+    * Parameters: double delta, time since previous frame
+    * Returns: None
+    */
     public override void _Process(double delta)
     {
-        //10/27 Addition: Firing Bullet, will be fixed later
         if (Input.IsActionJustPressed("ShootMagic") && IsOnFloor() &&_canShoot)
         {
             GD.Print("Shoot Magic");
             EmitSignal(SignalName.ShootMagicBullet);
             StartShootCooldown();
         }
-    } 
+    }
 
+    /* 
+    * Name: _PhysicsProcess
+    * Description: Runs every physics frame, handling horizontal movement, gravity, jumping, and muzzle position
+    * Parameters: double delta, time since previous physics frame
+    * Returns: None
+    */
     public override void _PhysicsProcess(double delta)
 	{
 		Vector2 previousVelocity = this.Velocity;
@@ -62,8 +91,7 @@ public partial class CharacterController : CharacterBody2D
         }
         currentVelocity.X = horizontalDirection * PixelsPerMeter * MHorizonalSpeed;
 
-        //10/29 Addition
-        //#Citation: Google "Godot c# how to get the flipH property"
+        //#Citation: On 10/29, taken from Google "Godot c# how to get the flipH property"
         //Flipping the muzzle's position based on if the sprite has been flipped
         bool isFlipped = _bodySprite.FlipH;
         if (isFlipped)
@@ -98,11 +126,16 @@ public partial class CharacterController : CharacterBody2D
             EmitSignal(SignalName.StartedJump);
         }
 
-
         Velocity = currentVelocity;
 		MoveAndSlide();
 	}
 
+    /* 
+    * Name: StartShootCooldown
+    * Description: Creates a delay between shots
+    * Parameters: None
+    * Returns: None
+    */
     private async void StartShootCooldown()
     {
         await Task.Delay(300);
@@ -111,10 +144,14 @@ public partial class CharacterController : CharacterBody2D
         _canShoot = true;
     }
 
+    /* 
+    * Name: ShootBullet
+    * Description: Creates a magic bullet at the muzzle's global position, prevents player from shooting until the cooldown finishes
+    * Parameters: None
+    * Returns: None
+    */
     public void ShootBullet()
     {
-
-        //#Citation: Taken from PlayerController from Assignment1, Originally in Process
         Vector2 spawnLocation = muzzle.GlobalPosition;
 
         Vector2 direction = Vector2.Right.Rotated(Rotation);

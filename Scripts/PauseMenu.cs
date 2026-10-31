@@ -1,11 +1,17 @@
+/********************************************************************************************/
+/*  File: PauseMenu.cs
+ *  Author: Prof. Jacklitsch
+/*  Creation Date:   10/29/26
+/*  Last Modified:   10/30/26
+/*  Section: CPSC320 
+/*  Professor Name:  Prof. Jacklitsch
+/*  Assignment: Project 1
+/*  Purpose:	Demonstrate a solid grasp of principles of 2D platformers and pixel art through both design documents and game.
+/********************************************************************************************/
+
 using Godot;
 using System;
 
-/*
-Royalty Free Music: Bensound.com / royalty - free - music
-License code: JSF8HZMBZVA2VE8F
-Artist: : Benjamin Tissot
-*/
 
 public partial class PauseMenu : Control
 {
@@ -17,6 +23,12 @@ public partial class PauseMenu : Control
     private Button _quitButton;
 
     // Called when the node enters the scene tree for the first time.
+    /* 
+    * Name: _Ready
+    * Description: On initalization, connects pause menu buttons, initalizes volume slider and connects to UpdateVolume
+    * Parameters: None
+    * Returns: None
+    */
     public override void _Ready()
     {
         ProcessMode = ProcessModeEnum.Pausable;
@@ -31,7 +43,12 @@ public partial class PauseMenu : Control
         _quitButton.Pressed += ExitGame;
 
     }
-
+    /* 
+    * Name: _Input
+    * Description: Checks for Pause input, calls TogglePause when detected
+    * Parameters: InputEvent @event, input event (ex. Key being pressed)
+    * Returns: None
+    */
     public override void _Input(InputEvent @event)
     {
         if (@event.IsActionPressed("Pause"))
@@ -40,6 +57,12 @@ public partial class PauseMenu : Control
         }
     }
 
+    /* 
+    * Name: TogglePause
+    * Description: Toggles the game's paused state, makes pause menu visible/not visible
+    * Parameters: None
+    * Returns: None
+    */
     public void TogglePause()
     {
         if (GetTree().Paused == false)
@@ -56,6 +79,12 @@ public partial class PauseMenu : Control
         }
     }
 
+    /* 
+    * Name: UpdateVolume
+    * Description: Ipdates global volume using new volume, applies audio to master bus
+    * Parameters: double newVolume, new volume selected
+    * Returns: None
+    */
     //# Shout out to Google AI for stating that the paramter must be a double, not a float,
     //#   contrary to Godot's engine's tips (likely a GDScript/C# difference)
     public void UpdateVolume(double newVolume)

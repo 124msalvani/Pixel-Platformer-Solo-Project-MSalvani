@@ -1,3 +1,17 @@
+/********************************************************************************************/
+/*  File: CharacterController.cs
+ *  Author: Prof. Jacklitsch
+/*  Current Author:  Maggie Salvani
+/*  Major:   Game Development
+/*  Creation Date:   10/22/26
+/*  Last Modified:   10/30/26
+/*  Section: CPSC320 
+/*  Professor Name:  Prof. Jacklitsch
+/*  Assignment: Project 1
+/*  Purpose:	Demonstrate a solid grasp of principles of 2D platformers and pixel art through both design documents and game.
+/********************************************************************************************/
+
+
 using Godot;
 using System;
 
@@ -20,6 +34,12 @@ public partial class MapZone : Node2D
     public delegate void EnteredPortalEventHandler(string anticipatedScene);
 
     // Called when the node enters the scene tree for the first time.
+    /* 
+    * Name: _Ready
+    * Description: On initialization, gets the current scene file's path, and connects each portal
+    * Parameters: None
+    * Returns: None
+    */
     public override void _Ready()
     {
         SceneName = this.SceneFilePath;
@@ -29,12 +49,12 @@ public partial class MapZone : Node2D
         }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-
-    }
-
+    /* 
+    * Name: PortalTriggered
+    * Description: When a portal is entered, checks if it is the final portal, emits signal with destination scene
+    * Parameters: ZonePortal triggeringPortal, the portal the player entered
+    * Returns: None
+    */
     public void PortalTriggered(ZonePortal triggeringPortal)
     {
         if (triggeringPortal.IsFinalPortal)

@@ -1,3 +1,17 @@
+/********************************************************************************************/
+/*  File: PlayerAnimationController.cs
+ *  Author: Prof. Jacklitsch
+/*  Current Author:  Maggie Salvani
+/*  Major:   Game Development
+/*  Creation Date:   10/22/26
+/*  Last Modified:   10/30/26
+/*  Section: CPSC320 
+/*  Professor Name:  Prof. Jacklitsch
+/*  Assignment: Project 1
+/*  Purpose:	Demonstrate a solid grasp of principles of 2D platformers and pixel art through both design documents and game.
+/********************************************************************************************/
+
+
 using Godot;
 using System;
 using System.Threading;
@@ -24,12 +38,25 @@ public partial class PlayerAnimationController : AnimationTree
 
 
     // Called when the node enters the scene tree for the first time.
+    /* 
+    * Name: _EnterTree
+    * Description: Connects StartedJump and ShootMagic signals with their animations
+    * Parameters: None
+    * Returns: None
+    */
     public override void _EnterTree()
 	{
         _playerController.StartedJump += StartJump;
         _playerController.ShootMagicBullet += ShootMagic;
 
     }
+
+    /* 
+    * Name: _EnterTree
+    * Description: Disconnects StartedJump and ShootMagic signals from their animations when the nodes is done in the scene tree
+    * Parameters: None
+    * Returns: None
+    */
     public override void _ExitTree()
     {
         _playerController.StartedJump -= StartJump;
@@ -38,6 +65,12 @@ public partial class PlayerAnimationController : AnimationTree
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
+    /* 
+    * Name: _Process
+    * Description: Runs every frame, updating player's movement and checking whether the player is grounded to update their jumping
+    * Parameters: double delta, time since previous frame
+    * Returns: None
+    */
     public override void _Process(double delta)
 	{
         xisMoving = _playerController.Velocity.X != 0;
@@ -62,13 +95,24 @@ public partial class PlayerAnimationController : AnimationTree
         }
 
     }
-
+    /* 
+    * Name: StartJump
+    * Description: Sets isJumping to true, letting the jump animation play
+    * Parameters: None
+    * Returns: None
+    */
     public void StartJump()
     {
         isJumping = true;
     }
 
-    //#Citation: Google Godot C# wait one second
+    /* 
+    * Name: ShootMagic
+    * Description: Sets isShooting to true, triggers animation, and waits before setting it back to false
+    * Parameters: None
+    * Returns: None
+    */
+    //#Citation: Taken from Google: "Godot C# wait one second" on 10/29
     public async void ShootMagic()
     {
         isShooting = true;

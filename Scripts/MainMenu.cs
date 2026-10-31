@@ -1,13 +1,13 @@
 /********************************************************************************************/
-/*  File: StartScreen.cs
+/*  File: MainMenu.cs
 /*  Author:  Maggie Salvani
 /*  Major:   Game Development
 /*  Creation Date:   8/31/26
-/*  Last Modified:   9/4/26
+/*  Last Modified:   10/30/26
 /*  Section: CPSC320 
 /*  Professor Name:  Prof. Jacklitsch
-/*  Assignment: Assignment 1
-/*  Purpose:		Demonstrate your understanding of Godot by creating a simple shooting gallery game.
+/*  Assignment: Project 1
+/*  Purpose:	Demonstrate a solid grasp of principles of 2D platformers and pixel art through both design documents and game.
 /********************************************************************************************/
 
 using Godot;
@@ -15,6 +15,7 @@ using System;
 
 public partial class MainMenu : Control
 {
+    //! Very, very messy and inefficient, need to rework this
     [Export] private Control _mainMenuButtons;
     [Export] private Control _settingsMenu;
     [Export] private Control _creditsMenu;
@@ -46,7 +47,7 @@ public partial class MainMenu : Control
 
     /* 
     * Name: _Ready
-    * Description: On initialization, connects start button to the SwitchToNextScene function
+    * Description: On initialization, connects various buttons between different UI elements on Main Menu
     * Parameters: None
     * Returns: None
     */
@@ -98,36 +99,68 @@ public partial class MainMenu : Control
         GetTree().Quit();
     }
 
+    /* 
+    * Name: SettingsMenu
+    * Description: Makes the Settings Menu UI visible, and the Main Menu UI not visible
+    * Parameters: None
+    * Returns: None
+    */
     public void SettingsMenu()
     {
         _mainMenuButtons.Visible = false;
         _settingsMenu.Visible = true;
     }
-
+    /* 
+    * Name: SettingsReturn
+    * Description: Makes the Settings Menu UI not visible, and the Main Menu UI visible
+    * Parameters: None
+    * Returns: None
+    */
     public void SettingsReturn()
     {
         _mainMenuButtons.Visible = true;
         _settingsMenu.Visible = false;
     }
 
+    /* 
+    * Name: CreditsMenu
+    * Description: Makes the Credits Menu UI visible, and the Main Menu UI not visible
+    * Parameters: None
+    * Returns: None
+    */
     public void CreditsMenu()
     {
         _mainMenuButtons.Visible = false;
         _creditsMenu.Visible = true;
     }
-
+    /* 
+    * Name: CreditsReturn
+    * Description: Makes the Credits Menu UI not visible, and the Main Menu UI visible
+    * Parameters: None
+    * Returns: None
+    */
     public void CreditsReturn()
     {
         _mainMenuButtons.Visible = true;
         _creditsMenu.Visible = false;
     }
-
+    /* 
+    * Name: ControlsMenu
+    * Description: Makes the Controls Menu UI visible, and the Main Menu UI not visible
+    * Parameters: None
+    * Returns: None
+    */
     public void ControlsMenu()
     {
         _mainMenuButtons.Visible = false;
         _controlsMenu.Visible = true;
     }
-
+    /* 
+    * Name: ControlsReturn
+    * Description: Makes the Controls Menu UI not visible, and the Main Menu UI visible
+    * Parameters: None
+    * Returns: None
+    */
     public void ControlsReturn()
     {
         _mainMenuButtons.Visible = true;
@@ -135,7 +168,12 @@ public partial class MainMenu : Control
     }
 
 
-
+    /* 
+    * Name: UpdateVolume
+    * Description: Updates the volume at the bus using the global gamevolume and sets it to the new volume
+    * Parameters: double newVolume, new volume number
+    * Returns: None
+    */
     public void UpdateVolume(double newVolume)
     {
         GlobalVariables.GameVolume = (float)newVolume;
