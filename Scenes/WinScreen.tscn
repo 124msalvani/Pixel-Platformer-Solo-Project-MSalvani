@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bhvay1i844at6"]
 
-[ext_resource type="Texture2D" uid="uid://cw0blvqwmv5gc" path="res://Sprites/UI/Panels/StandardPanel.png" id="1_d8xbi"]
+[ext_resource type="Script" uid="uid://dtc44ilsly773" path="res://Scripts/WinScreen.cs" id="1_82r0j"]
 [ext_resource type="Theme" uid="uid://b0f1osl05uk3j" path="res://Fonts/new_theme.tres" id="2_d8xbi"]
 
-[node name="Win Screen" type="Control" unique_id=1436118704]
+[node name="Win Screen" type="Control" unique_id=1436118704 node_paths=PackedStringArray("_quitButton")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,6 +16,8 @@ offset_right = 74.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_82r0j")
+_quitButton = NodePath("MarginContainer/NinePatchRect/MarginContainer/Quit")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=772239563]
 layout_mode = 1
@@ -27,7 +29,6 @@ grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=146001950]
 layout_mode = 2
-texture = ExtResource("1_d8xbi")
 region_rect = Rect2(0, 0, 64, 64)
 patch_margin_left = 16
 patch_margin_top = 16
@@ -42,20 +43,26 @@ offset_top = 8.0
 offset_bottom = 39.0
 grow_horizontal = 2
 theme = ExtResource("2_d8xbi")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 text = "You Won!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/NinePatchRect" unique_id=1612696631]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=1465037500]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.65000004
-anchor_right = 0.7
-anchor_bottom = 0.86
-grow_horizontal = 2
-grow_vertical = 0
+anchor_left = 0.047000002
+anchor_top = 0.69000006
+anchor_right = 0.95300007
+anchor_bottom = 0.97
+offset_left = 0.043999672
+offset_top = -10.000008
+offset_right = -0.044006348
+
+[node name="Quit" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=1402029847]
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
 theme = ExtResource("2_d8xbi")
-theme_override_font_sizes/font_size = 10
-text = "Main Menu"
+text = "Quit
+"

@@ -40,11 +40,13 @@ public partial class GameManager : Node2D
         _loadManager.FinishedProcess += EndLoadingZone;
 
         BeginLoadingZone(_startingSceneName);
+        _winScreen.Visible = false;
+
 
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 
 	}
@@ -122,4 +124,8 @@ public partial class GameManager : Node2D
         // Now we can safely re-enable collision
         _playerController.SetCollisionLayerValue(2, true);
     }
+
+    
 }
+
+

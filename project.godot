@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MSalvaniSoloProj"
 config/description="My 2D Solo Project. The base of the project is Prof. Jacklitsch's SidescrollerTM V5."
-run/main_scene="uid://dnx1g4k08mlry"
+run/main_scene="uid://bn5y1fhdx0e8f"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -80,7 +80,7 @@ Pause={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

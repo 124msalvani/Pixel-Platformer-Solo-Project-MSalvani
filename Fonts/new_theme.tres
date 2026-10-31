@@ -1,6 +1,54 @@
 [gd_resource type="Theme" format=3 uid="uid://b0f1osl05uk3j"]
 
 [ext_resource type="FontFile" uid="uid://dppm2qo17ukks" path="res://Fonts/PixelifySans-Medium.ttf" id="1_8slnm"]
+[ext_resource type="Texture2D" uid="uid://bv4y5vnr2qtvg" path="res://Sprites/UI/ButtonSprite.png" id="1_jo5fv"]
+[ext_resource type="Texture2D" uid="uid://dst7f0xqviluu" path="res://Sprites/UI/ButtonHoverSprite.png" id="1_n8wug"]
+[ext_resource type="Texture2D" uid="uid://x03hde3ms7jv" path="res://Sprites/UI/GrabberSprite.png" id="1_o15ft"]
+[ext_resource type="Texture2D" uid="uid://btu48ha7g0kv2" path="res://Sprites/UI/GrabberDisabledSprite.png" id="2_jo5fv"]
+[ext_resource type="Texture2D" uid="uid://j75d0gfpe7gn" path="res://Sprites/UI/ButtonClickSprite.png" id="2_ykouf"]
+[ext_resource type="Texture2D" uid="uid://eh8vnsnlf5b2" path="res://Sprites/UI/GrabberHighlightSprite.png" id="3_2g8js"]
+[ext_resource type="Texture2D" uid="uid://be2tynsf1gwiq" path="res://Sprites/UI/TickSprite.png" id="4_n8wug"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyasb"]
+texture = ExtResource("1_n8wug")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykouf"]
+texture = ExtResource("2_ykouf")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmrfp"]
+texture = ExtResource("1_jo5fv")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n8wug"]
+texture = ExtResource("2_ykouf")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [resource]
 default_font = ExtResource("1_8slnm")
+default_font_size = 16
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_qyasb")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_ykouf")
+Button/styles/normal = SubResource("StyleBoxTexture_cmrfp")
+Button/styles/pressed = SubResource("StyleBoxTexture_n8wug")
+HSlider/icons/grabber = ExtResource("1_o15ft")
+HSlider/icons/grabber_disabled = ExtResource("2_jo5fv")
+HSlider/icons/grabber_highlight = ExtResource("3_2g8js")
+HSlider/icons/tick = ExtResource("4_n8wug")

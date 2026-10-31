@@ -32,14 +32,9 @@ _gameManager = NodePath("..")
 [node name="GUI" type="CanvasLayer" parent="." unique_id=881915699]
 
 [node name="Win Screen" parent="GUI" unique_id=1436118704 instance=ExtResource("5_321ql")]
-visible = false
 
 [node name="Pause Menu" parent="GUI" unique_id=1962854035 instance=ExtResource("5_iuea6")]
 visible = false
-offset_left = 165.8712
-offset_top = 57.943195
-offset_right = -6.128784
-offset_bottom = -22.056808
 
 [node name="LoadingManager" type="Node2D" parent="." unique_id=1819938357 node_paths=PackedStringArray("_loadingScreen")]
 script = ExtResource("6_iuea6")

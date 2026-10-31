@@ -28,6 +28,8 @@ public partial class PauseMenu : Control
 
         _volumeSlider.ValueChanged += UpdateVolume;
 
+        _quitButton.Pressed += ExitGame;
+
     }
 
     public override void _Input(InputEvent @event)
@@ -60,5 +62,16 @@ public partial class PauseMenu : Control
     {
         GlobalVariables.GameVolume = (float)newVolume;
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), GlobalVariables.GameVolume);
+    }
+
+    /* 
+    * Name: ExitGame
+    * Description: When called, closes the game
+    * Parameters: None
+    * Returns: None
+    */
+    public void ExitGame()
+    {
+        GetTree().Quit();
     }
 }

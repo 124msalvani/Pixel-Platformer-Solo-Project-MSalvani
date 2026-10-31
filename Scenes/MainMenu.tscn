@@ -1,34 +1,208 @@
-[gd_scene format=3 uid="uid://bg1xwuhp72g4h"]
+[gd_scene format=3 uid="uid://bn5y1fhdx0e8f"]
 
-[ext_resource type="Script" uid="uid://dwmc454b07wm5" path="res://Scripts/PauseMenu.cs" id="1_df05h"]
-[ext_resource type="Texture2D" uid="uid://cw0blvqwmv5gc" path="res://Sprites/UI/Panels/StandardPanel.png" id="2_8um5k"]
+[ext_resource type="Script" uid="uid://c4d432lixyhur" path="res://Scripts/MainMenu.cs" id="1_df05h"]
+[ext_resource type="Texture2D" uid="uid://bukvvco0yu2w7" path="res://Sprites/Background/BG_1/BG.png" id="2_loo7a"]
+[ext_resource type="Texture2D" uid="uid://c4fx05munyv3b" path="res://Sprites/Background/BG_1/Woods 2.png" id="3_if7li"]
 [ext_resource type="Theme" uid="uid://b0f1osl05uk3j" path="res://Fonts/new_theme.tres" id="3_xim88"]
 [ext_resource type="FontFile" uid="uid://ftnq1hegfko3" path="res://Fonts/PixelifySans-Bold.ttf" id="4_koqhg"]
+[ext_resource type="Texture2D" uid="uid://dt6nartyae1dg" path="res://Sprites/Background/BG_1/Woods 1.png" id="4_rrcx7"]
 [ext_resource type="FontFile" uid="uid://b8knhaciehhgq" path="res://Fonts/PixelifySans-Regular.ttf" id="5_cmrfp"]
+[ext_resource type="Texture2D" uid="uid://dkec82onjsi4i" path="res://Sprites/Background/BG_1/Lights 1.png" id="5_fh7cp"]
+[ext_resource type="AudioStream" uid="uid://bgm4qhtc65lka" path="res://Sounds/MainMenuMusic.mp3" id="6_8um5k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_37bqs"]
 font = ExtResource("4_koqhg")
+font_size = 25
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_024v7"]
 font = ExtResource("5_cmrfp")
+font_size = 25
 
-[node name="Control" type="Control" unique_id=1962854035 node_paths=PackedStringArray("_volumeSlider", "_pauseButton", "_quitButton")]
+[sub_resource type="LabelSettings" id="LabelSettings_cmrfp"]
+font_size = 11
+
+[node name="Control" type="Control" unique_id=1962854035 node_paths=PackedStringArray("_mainMenuButtons", "_settingsMenu", "_creditsMenu", "_controlsMenu", "_volumeSlider", "_startButton", "_quitButton", "_settingsButton", "_creditsButton", "_controlsButton", "_settingsReturnButton", "_creditsReturnButton", "_controlsReturnButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 86.0
-offset_top = 40.0
-offset_right = -86.0
-offset_bottom = -40.0
+offset_left = 50.0
+offset_top = 20.0
+offset_right = -39.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_position = Vector2(50, 50)
 script = ExtResource("1_df05h")
-_volumeSlider = NodePath("MarginContainer/NinePatchRect/MarginContainer2/HSlider")
-_pauseButton = NodePath("MarginContainer/NinePatchRect/MarginContainer/Unpause")
-_quitButton = NodePath("MarginContainer/NinePatchRect/MarginContainer/Main Menu")
+_mainMenuButtons = NodePath("MainMenuPanel")
+_settingsMenu = NodePath("SettingsPanel")
+_creditsMenu = NodePath("CreditsPanel")
+_controlsMenu = NodePath("ControlsPanel")
+_volumeSlider = NodePath("SettingsPanel/MarginContainer/NinePatchRect/MarginContainer2/HSlider")
+_startButton = NodePath("MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer/StartGame")
+_quitButton = NodePath("MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer2/Quit")
+_settingsButton = NodePath("MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer/Settings")
+_creditsButton = NodePath("MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer/Credits")
+_controlsButton = NodePath("MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer2/Controls")
+_settingsReturnButton = NodePath("SettingsPanel/MarginContainer/NinePatchRect/MarginContainer/Return")
+_creditsReturnButton = NodePath("CreditsPanel/MarginContainer/NinePatchRect/MarginContainer/Return")
+_controlsReturnButton = NodePath("ControlsPanel/MarginContainer/NinePatchRect/MarginContainer/Return")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2131787643]
+[node name="Background" type="Node2D" parent="." unique_id=198865670]
+position = Vector2(-150, -50)
+
+[node name="SkyParallax" type="Parallax2D" parent="Background" unique_id=252668415]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(380, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/SkyParallax" unique_id=500558533]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_loo7a")
+centered = false
+
+[node name="FarTreesParallax" type="Parallax2D" parent="Background" unique_id=19767395]
+scroll_scale = Vector2(0.05, 0)
+repeat_size = Vector2(380, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/FarTreesParallax" unique_id=1813512398]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("3_if7li")
+centered = false
+
+[node name="CloseTreesParallax" type="Parallax2D" parent="Background" unique_id=844265882]
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(380, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/CloseTreesParallax" unique_id=1734176964]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_rrcx7")
+centered = false
+
+[node name="SunlightParallax" type="Parallax2D" parent="Background" unique_id=1194154033]
+scroll_scale = Vector2(0.35, 0)
+repeat_size = Vector2(400, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/SunlightParallax" unique_id=441545180]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_fh7cp")
+centered = false
+
+[node name="MainMenuPanel" type="Control" parent="." unique_id=1801411506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuPanel" unique_id=2131787643]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MainMenuPanel/MarginContainer" unique_id=1984450007]
+layout_mode = 2
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Label" type="Label" parent="MainMenuPanel/MarginContainer/NinePatchRect" unique_id=448948105]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-10, 0)
+theme = ExtResource("3_xim88")
+text = "Little Fox's Adventure"
+label_settings = SubResource("LabelSettings_37bqs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuPanel/MarginContainer/NinePatchRect" unique_id=195736836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.69000006
+anchor_right = 0.95300007
+anchor_bottom = 0.97
+offset_left = 0.044000626
+offset_top = -43.390007
+offset_right = -0.044006348
+offset_bottom = -29.000008
+
+[node name="StartGame" type="Button" parent="MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer" unique_id=918153657]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme = ExtResource("3_xim88")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer" unique_id=1481690207]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme = ExtResource("3_xim88")
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer" unique_id=1255132900]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, 0)
+theme = ExtResource("3_xim88")
+text = "Credits"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenuPanel/MarginContainer/NinePatchRect" unique_id=1971173691]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.69000006
+anchor_right = 0.95300007
+anchor_bottom = 0.97
+offset_left = 39.142998
+offset_top = 2.609993
+offset_right = 39.054962
+offset_bottom = -4.0000076
+
+[node name="Controls" type="Button" parent="MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer2" unique_id=933400189]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme = ExtResource("3_xim88")
+text = "Controls"
+
+[node name="Quit" type="Button" parent="MainMenuPanel/MarginContainer/NinePatchRect/MarginContainer2" unique_id=1540144457]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 5.0
+offset_transform_enabled = true
+theme = ExtResource("3_xim88")
+text = "Quit
+"
+
+[node name="SettingsPanel" type="Control" parent="." unique_id=1787848380]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,16 +210,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1984450007]
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel" unique_id=1195829895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 55.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SettingsPanel/MarginContainer" unique_id=1199250062]
 layout_mode = 2
-texture = ExtResource("2_8um5k")
 region_rect = Rect2(0, 0, 64, 64)
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="Label" type="Label" parent="MarginContainer/NinePatchRect" unique_id=448948105]
+[node name="Label" type="Label" parent="SettingsPanel/MarginContainer/NinePatchRect" unique_id=715644470]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -53,31 +237,39 @@ offset_top = 8.0
 offset_bottom = 25.0
 grow_horizontal = 2
 theme = ExtResource("3_xim88")
-text = "TempMM"
+text = "Options"
 label_settings = SubResource("LabelSettings_37bqs")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=623798077]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 27.0
-offset_right = 141.0
-offset_bottom = 66.0
+[node name="MarginContainer2" type="MarginContainer" parent="SettingsPanel/MarginContainer/NinePatchRect" unique_id=886148682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -25.5
+offset_right = 67.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/NinePatchRect/MarginContainer2" unique_id=1445522788]
+[node name="HSlider" type="HSlider" parent="SettingsPanel/MarginContainer/NinePatchRect/MarginContainer2" unique_id=144093761]
 layout_mode = 2
 size_flags_vertical = 8
+theme = ExtResource("3_xim88")
 min_value = -10.0
 max_value = 0.0
 
-[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer2" unique_id=498988575]
+[node name="Label" type="Label" parent="SettingsPanel/MarginContainer/NinePatchRect/MarginContainer2" unique_id=1680597199]
 layout_mode = 2
 text = "Volume"
 label_settings = SubResource("LabelSettings_024v7")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=195736836]
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel/MarginContainer/NinePatchRect" unique_id=2020273818]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.047000002
@@ -87,20 +279,190 @@ anchor_bottom = 0.97
 offset_left = 0.043999672
 offset_right = -0.044006348
 
-[node name="Unpause" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=918153657]
+[node name="Return" type="Button" parent="SettingsPanel/MarginContainer/NinePatchRect/MarginContainer" unique_id=222204870]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
 theme = ExtResource("3_xim88")
-theme_override_font_sizes/font_size = 10
-text = "Start Game"
+text = "Return"
 
-[node name="Main Menu" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=1014164050]
+[node name="CreditsPanel" type="Control" parent="." unique_id=1747874874]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsPanel" unique_id=701403144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 55.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CreditsPanel/MarginContainer" unique_id=1495323950]
 layout_mode = 2
-size_flags_horizontal = 8
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Label" type="Label" parent="CreditsPanel/MarginContainer/NinePatchRect" unique_id=152128964]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme = ExtResource("3_xim88")
+text = "Credits"
+label_settings = SubResource("LabelSettings_37bqs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreditsPanel/MarginContainer/NinePatchRect" unique_id=1444987671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -65.0
+offset_right = 156.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CreditsPanel/MarginContainer/NinePatchRect/MarginContainer2" unique_id=1333788527]
+layout_mode = 2
+theme = ExtResource("3_xim88")
+text = "Code By:
+Maggie Salvani
+Prof. Jacklitsch
+Tilemap: Pixel Woods by Cubic Tree
+Main Menu Music: Magic Forest by Darren Hurst
+Level Music: Meeting the Forest by BonfireLightMusic
+SFX:  Rock Destroy by freesoundcommunity"
+label_settings = SubResource("LabelSettings_cmrfp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsPanel/MarginContainer/NinePatchRect" unique_id=1479121292]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.69000006
+anchor_right = 0.95300007
+anchor_bottom = 0.97
+offset_left = 0.043999672
+offset_top = 30.62999
+offset_right = -0.044006348
+offset_bottom = 13.190002
+
+[node name="Return" type="Button" parent="CreditsPanel/MarginContainer/NinePatchRect/MarginContainer" unique_id=814596399]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme = ExtResource("3_xim88")
+text = "Return"
+
+[node name="ControlsPanel" type="Control" parent="." unique_id=443801539]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel" unique_id=1113298716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ControlsPanel/MarginContainer" unique_id=1836151737]
+layout_mode = 2
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Label" type="Label" parent="ControlsPanel/MarginContainer/NinePatchRect" unique_id=1249627098]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 25.0
+grow_horizontal = 2
+theme = ExtResource("3_xim88")
+text = "Controls"
+label_settings = SubResource("LabelSettings_37bqs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ControlsPanel/MarginContainer/NinePatchRect" unique_id=849563686]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -51.5
+offset_right = 67.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ControlsPanel/MarginContainer/NinePatchRect/MarginContainer2" unique_id=1941424032]
+layout_mode = 2
+theme = ExtResource("3_xim88")
+text = "A: Left
+D: Right
+Spacebar: Jump
+Shift: Shoot Magic
+Escape Key: Pause"
+label_settings = SubResource("LabelSettings_cmrfp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/MarginContainer/NinePatchRect" unique_id=374077638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.69000006
+anchor_right = 0.95300007
+anchor_bottom = 0.97
+offset_left = 0.043999672
+offset_right = -0.044006348
+
+[node name="Return" type="Button" parent="ControlsPanel/MarginContainer/NinePatchRect/MarginContainer" unique_id=1873215470]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
 theme = ExtResource("3_xim88")
 theme_override_font_sizes/font_size = 10
-text = "Quit"
+text = "Return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=928678920]
+stream = ExtResource("6_8um5k")
+volume_db = -10.0
+autoplay = true

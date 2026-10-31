@@ -75,4 +75,5 @@ public partial class PlayerAnimationController : AnimationTree
         await Task.Delay(500);
         isShooting = false;
     }
+    
 }
